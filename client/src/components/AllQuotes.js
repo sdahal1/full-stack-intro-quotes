@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from '@reach/router';
 import axios from 'axios'
 
 
@@ -28,9 +29,12 @@ const AllQuotes = () => {
             <h4>Here are all the quotes!</h4>
             {
                 allQuotes.map((quoteObj, idx)=>{
-                    return <div style = {{border:"1px solid black"}}>
+                    return <div key = {idx} style = {{border:"1px solid black"}}>
                         <h1>Quoted by: {quoteObj.quotedBy} </h1>
                         <p>Quote: {quoteObj.content}</p>
+
+                        <button><Link to={`/quotes/info/${quoteObj._id}`}>More details</Link></button>
+                    
                     </div>
                 })
             }
