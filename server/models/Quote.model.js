@@ -3,13 +3,16 @@ const mongoose = require('mongoose');
 
 const QuoteSchema = new mongoose.Schema({
     quotedBy: {
-        type: String
+        type: String,
+        required: [true, "Quoted By needs to be filled out!"]
     },
     content: {
-        type: String
+        type: String,
+        required: [true, "WEEE NEED CONTENT!"]
     },
     quotedOn: {
-        type: Date
+        type: Date,
+        required: [true, "When tho? When was this said?"]
     }
 
 })

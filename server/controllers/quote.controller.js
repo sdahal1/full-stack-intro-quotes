@@ -13,20 +13,20 @@ module.exports.findAllQuotes = (req, res)=>{
             console.log("TRYIING TO FIND ALL THE QUOTES")
             res.json({results: allquotes}) 
         })
-        .catch(err => res.json({errors: err}))
+        .catch(err => res.json(err))
 }
 
 module.exports.createOneQuote = (req,res)=>{
     Quote.create(req.body)
         .then(newlyCreateQuote=> res.json({results: newlyCreateQuote}))
-        .catch(err => res.json({errors:err }))
+        .catch(err => res.json(err))
 }
 
 
 module.exports.findAQuote = (req,res)=>{
    Quote.findOne({_id: req.params.quoteid})
         .then(oneQuote => res.json({results: oneQuote}))
-        .catch(err => res.json({errors: err}))
+        .catch(err => res.json(err))
 
 }
 
@@ -36,14 +36,14 @@ module.exports.updateAQuote = (req,res)=>{
         req.body ,
         {new:true})
         .then(updatedQuote => res.json({results: updatedQuote}))
-        .catch(err => res.json({errors: err}))
+        .catch(err => res.json(err))
 }
 
 
 module.exports.deleteQuote = (req,res)=>{
     Quote.deleteOne({_id: req.params.quoteid})
         .then(deletedResult => res.json({results: deletedResult})  )
-        .catch(err => res.json({errors: err}))
+        .catch(err => res.json(err))
 
 }
 
@@ -64,7 +64,7 @@ module.exports.randomQuote = (req,res)=>{
             
             res.json({results: allquotes[randomNum]})
         })
-        .catch()
+        .catch(err => res.json(err))
     
 }
 
