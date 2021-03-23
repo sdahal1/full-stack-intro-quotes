@@ -34,6 +34,9 @@ const AllQuotes = () => {
                         <p>Quote: {quoteObj.content}</p>
 
                         <button><Link to={`/quotes/info/${quoteObj._id}`}>More details</Link></button>
+                        <button><Link to = {`/quotes/edit/${quoteObj._id}`}>Edit Quote</Link></button>
+                      
+
                     
                     </div>
                 })
